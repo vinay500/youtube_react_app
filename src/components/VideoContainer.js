@@ -10,7 +10,9 @@ const VideoContainer = () => {
   }, []);
 
   const getVideos = async () => {
-    const data = await fetch(YOUTUBE_VIDEOS_API);
+    const data = await fetch(YOUTUBE_VIDEOS_API, {
+      referrerPolicy: "unsafe-url" 
+  });
     const json = await data.json();
     setVideos(json.items);
   };
